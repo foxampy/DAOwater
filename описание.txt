@@ -1,0 +1,967 @@
+собер максимально проффесианальное и готовое к официальному релизу и работе приложение
+стиль и дизайн возьми с моего сайта следующей версии https://civilization-protocol.vercel.app/  
+Ниже — **профессиональная, структурированная спецификация сборки веб-приложения VODeco (Alpha 1)**, ориентированная на инвесторскую, продуктовую и инженерную логику. Формат — как **Product + Technical Blueprint**, который можно напрямую использовать для постановки задач команде или подрядчикам.
+
+---
+
+# VODeco Web Application
+
+## Alpha 1 — Product & Technical Blueprint
+
+## 0. Цель Alpha 1
+
+**Alpha 1** — это:
+
+* доказательство жизнеспособности платформы (PoC / MVP+),
+* демонстрация ценности данных водного сектора,
+* запуск социальной и инвестиционной механики (без блокчейна),
+* основа для масштабирования в DAO и Web3.
+
+Фокус:
+
+* визуализация глобального водного сектора,
+* вовлечение пользователей,
+* тест экономики токена (off-chain),
+* подготовка к партнёрствам и инвестициям.
+
+---
+
+## 1. Общая архитектура платформы
+
+### 1.1 Архитектурный подход
+
+**Modular / Scalable / API-first**
+
+```
+Frontend (Web / Mobile-first)
+↓
+Backend API (Core Logic)
+↓
+Data Layer (External APIs + Internal DB)
+↓
+Analytics & Visualization Engine
+```
+
+---
+
+### 1.2 Технологический стек (рекомендуемый)
+
+#### Frontend
+
+* **Next.js (React, App Router)**
+* TypeScript
+* TailwindCSS + CSS variables (design system)
+* Three.js / CesiumJS / Mapbox GL JS (3D-карта)
+* Recharts / D3.js (графики)
+* Framer Motion (анимации)
+
+#### Backend
+
+* **Node.js (NestJS)** или **FastAPI (Python)**
+* REST + WebSocket
+* JWT + OAuth2
+* Role-based access control (RBAC)
+
+#### Data & Storage
+
+* PostgreSQL (основные данные)
+* Redis (кэш, сессии, real-time)
+* S3-compatible storage (медиа, документы)
+
+#### Infrastructure
+
+* Docker
+* Vercel / Railway / Fly.io (Alpha)
+* GitHub Actions (CI/CD)
+
+---
+
+## 2. Основные модули Alpha 1
+
+---
+
+# 2.1 Dashboard
+
+**Global Water Intelligence Dashboard**
+
+### Цель
+
+Показать:
+
+* глобальное состояние водных ресурсов,
+* мониторинг объектов,
+* аналитическую ценность данных.
+
+---
+
+### Функции
+
+#### 2.1.1 Сбор данных
+
+Интеграция с **открытыми API**:
+
+* спутниковые данные (NASA, ESA)
+* гидрология (уровни воды, осадки)
+* качество воды
+* водная инфраструктура
+* климатические модели
+* экологические отчёты
+
+> На Alpha — 5–10 ключевых источников, агрегированных.
+
+---
+
+#### 2.1.2 Обработка и агрегация
+
+* нормализация данных
+* временные ряды
+* расчёт индексов:
+
+  * Water Stress Index
+  * Investment Gap Index
+  * Risk / Impact Score
+
+---
+
+#### 2.1.3 Визуализация
+
+**3D Карта Земли**
+
+* точки объектов (реки, плотины, станции, регионы)
+* цветовые слои (стресс, дефицит, инвестиции)
+* таймлайн (изменения во времени)
+
+**Карточки объектов**
+
+* краткое описание
+* ключевые метрики
+* динамика
+* связанные проекты
+
+**Интерактив**
+
+* фильтры
+* поиск
+* переключение сценариев
+
+---
+
+# 2.2 Личный кабинет (User Profile)
+
+### Цель
+
+Создать цифровую идентичность участника экосистемы.
+
+---
+
+### Функции
+
+#### Регистрация и доступ
+
+* Email / OAuth
+* optional: расширенная верификация (KYC-light)
+
+#### Профиль пользователя
+
+* базовая информация
+* роль (наблюдатель, исследователь, инвестор, партнёр)
+* активность
+
+#### История действий
+
+* просмотренные объекты
+* участие в проектах
+* задания
+* транзакции токенов (off-chain)
+
+#### Достижения
+
+* бейджи
+* сертификаты участия
+* уровни
+* экспорт / шаринг в соцсети
+
+#### Кошелёк (off-chain)
+
+* внутренний токен VOD
+* баланс
+* активные стейкинги
+* история начислений
+
+> Web3 — **не в Alpha**, только интерфейс готовности.
+
+---
+
+# 2.3 Биржа проектов
+
+### Название (выбор)
+
+Рекомендуемые варианты:
+
+* **VODeco Impact Market**
+* **VODeco Project Exchange**
+* **VODeco Water Impact Hub**
+* **VODeco StakeHub**
+* **VODeco Initiative Market**
+
+> Самый универсальный: **VODeco Impact Market**
+
+---
+
+### Назначение
+
+Единая точка:
+
+* инвестиций,
+* исследований,
+* инициатив,
+* инфраструктурных объектов.
+
+---
+
+### Типы лотов
+
+* проекты VODeco
+* государственные инициативы
+* партнёрские программы
+* пользовательские проекты
+* исследования
+* продукты и технологии
+
+---
+
+### Функции
+
+* карточка проекта
+* детальное описание
+* цели и KPI
+* impact-метрики
+* чат-ветка
+* стейкинг (внутренний токен)
+* статус проекта
+
+---
+
+# 2.4 Социальный слой
+
+### 2.4.1 Друзья
+
+* добавление
+* рекомендации
+* статус активности
+
+### 2.4.2 Сообщения
+
+* 1:1 чаты
+* проектные чаты
+* уведомления
+
+### 2.4.3 Группы
+
+* по интересам
+* по регионам
+* по проектам
+* по ролям
+
+---
+
+# 2.5 Задания, аирдропы, сотрудничество
+
+### Общее название (рекомендуется)
+
+**VODeco Opportunities & Engagement Program**
+
+Альтернативы:
+
+* VODeco Participation Hub
+* VODeco Ecosystem Programs
+* VODeco Impact Engagement
+
+---
+
+### Состав модуля
+
+#### Аирдропы
+
+* за активность
+* за вклад
+* за раннее участие
+
+#### Реферальная система
+
+* персональные ссылки
+* уровни
+* бонусы
+
+#### Задания
+
+* аналитические
+* образовательные
+* исследовательские
+
+#### Сотрудничество
+
+* вакансии
+* партнёрства
+* хакатоны
+* формы заявок
+* предложения инициатив
+
+---
+
+# 2.6 Whitepaper
+
+### Формат
+
+#### 1. Short Version (Pitch)
+
+* проблема
+* решение
+* рынок
+* модель
+* команда
+* roadmap
+
+#### 2. Full Documentation
+
+* философия VODeco
+* архитектура данных
+* DAO-модель
+* токеномика
+* governance
+* legal & compliance
+* impact framework
+* долгосрочная стратегия
+
+---
+
+## 3. UX / UI принципы (Mobile-first)
+
+* вертикальный скролл
+* карточная архитектура
+* минимальный текст
+* интерактив вместо перегрузки
+* мягкие анимации
+* dark/light режим
+* масштабируемость под desktop
+
+---
+
+## 4. Roadmap Alpha 1 (упрощённо)
+
+1. Core backend + auth
+2. Dashboard + карта
+3. Профиль + кошелёк
+4. Impact Market
+5. Социальные функции (базовые)
+6. Engagement Program
+7. Whitepaper + презентация
+
+---
+
+## 5. Что Alpha 1 доказывает инвестору
+
+* ценность данных
+* масштабируемость
+* вовлечённость
+* экономическую модель
+* готовность к DAO / Web3
+{
+  "meta": {
+    "project_name": "VODeco",
+    "version": "Alpha 1",
+    "goal": "Build a production-ready alpha web application with UX flows, modular architecture, data visualization, social features and off-chain token mechanics, deployed on free-tier infrastructure.",
+    "target_users": [
+      "researchers",
+      "impact investors",
+      "public institutions",
+      "eco-activists",
+      "early contributors"
+    ],
+    "primary_focus": [
+      "water sector analytics",
+      "impact visualization",
+      "ecosystem engagement",
+      "DAO-ready architecture"
+    ]
+  },
+
+  "deployment_strategy": {
+    "frontend": {
+      "platform": "Vercel",
+      "stack": ["Next.js", "TypeScript", "TailwindCSS"],
+      "reason": "Free tier, high security, automatic CI/CD, edge functions, perfect for React-based dashboards"
+    },
+    "backend": {
+      "platform": "Railway",
+      "stack": ["Node.js", "NestJS"],
+      "reason": "Free tier support for APIs, databases, background jobs, secure environment variables"
+    },
+    "database": {
+      "primary": "PostgreSQL",
+      "provider": "Railway",
+      "secondary": "Redis (optional)",
+      "reason": "Relational integrity, analytics-friendly, free tier availability"
+    },
+    "storage": {
+      "provider": "Cloudflare R2 or Supabase Storage",
+      "usage": ["documents", "certificates", "media"]
+    },
+    "auth": {
+      "method": "JWT + OAuth",
+      "providers": ["Email", "Google"],
+      "security": ["RBAC", "rate limiting"]
+    },
+    "repo_management": {
+      "platform": "GitHub",
+      "structure": ["frontend", "backend", "shared-types"],
+      "ci_cd": "GitHub Actions"
+    }
+  },
+
+  "ux_flow": {
+    "global_principles": {
+      "design": "mobile-first",
+      "layout": "card-based",
+      "interaction": "progressive disclosure",
+      "animation": "subtle, informative",
+      "modes": ["dark", "light"]
+    },
+
+    "user_journeys": [
+      {
+        "name": "First-time Visitor",
+        "steps": [
+          "Landing",
+          "Global Dashboard Preview",
+          "Call-to-Action (Join Ecosystem)",
+          "Registration"
+        ]
+      },
+      {
+        "name": "Registered User",
+        "steps": [
+          "Login",
+          "Personal Dashboard",
+          "Explore Impact Market",
+          "Stake Tokens",
+          "Join Projects"
+        ]
+      }
+    ]
+  },
+
+  "modules": {
+
+    "dashboard": {
+      "purpose": "Global water sector intelligence visualization",
+      "features": [
+        "3D Earth map",
+        "water stress layers",
+        "investment gap indicators",
+        "time-based analytics",
+        "object cards"
+      ],
+      "data_sources": {
+        "type": "public APIs",
+        "processing": [
+          "normalization",
+          "aggregation",
+          "index calculation"
+        ]
+      },
+      "visualization_stack": [
+        "Mapbox GL / CesiumJS",
+        "Three.js",
+        "D3.js"
+      ]
+    },
+
+    "user_profile": {
+      "features": [
+        "registration",
+        "optional verification",
+        "activity history",
+        "achievements",
+        "certificates",
+        "social sharing"
+      ],
+      "wallet": {
+        "type": "off-chain",
+        "features": [
+          "token balance",
+          "staking positions",
+          "transaction history"
+        ]
+      }
+    },
+
+    "impact_market": {
+      "name": "VODeco Impact Market",
+      "entities": [
+        "projects",
+        "research",
+        "initiatives",
+        "infrastructure objects",
+        "companies"
+      ],
+      "features": [
+        "project cards",
+        "detailed pages",
+        "impact metrics",
+        "discussion threads",
+        "staking"
+      ]
+    },
+
+    "social_layer": {
+      "friends": true,
+      "messages": {
+        "type": "real-time",
+        "scope": ["direct", "project-based"]
+      },
+      "groups": [
+        "regional",
+        "interest-based",
+        "project-based"
+      ]
+    },
+
+    "engagement_program": {
+      "name": "VODeco Opportunities & Engagement Program",
+      "components": [
+        "airdrops",
+        "referral system",
+        "tasks",
+        "vacancies",
+        "partnership applications",
+        "hackathons"
+      ]
+    },
+
+    "whitepaper": {
+      "short_version": [
+        "problem",
+        "solution",
+        "market",
+        "model",
+        "roadmap"
+      ],
+      "full_documentation": [
+        "philosophy",
+        "data architecture",
+        "tokenomics",
+        "DAO governance",
+        "impact framework",
+        "legal considerations"
+      ]
+    }
+  },
+
+  "roadmap": {
+    "phase_1": [
+      "auth system",
+      "core backend",
+      "database schema"
+    ],
+    "phase_2": [
+      "dashboard & map",
+      "data ingestion"
+    ],
+    "phase_3": [
+      "user profile",
+      "wallet logic"
+    ],
+    "phase_4": [
+      "impact market",
+      "staking mechanics"
+    ],
+    "phase_5": [
+      "social features",
+      "engagement programs"
+    ],
+    "phase_6": [
+      "deployment",
+      "security audit",
+      "alpha testing"
+    ]
+  },
+
+  "success_criteria": {
+    "technical": [
+      "stable deployment",
+      "secure auth",
+      "scalable architecture"
+    ],
+    "product": [
+      "clear value proposition",
+      "high engagement",
+      "data credibility"
+    ],
+    "investor_ready": [
+      "working demo",
+      "clear roadmap",
+      "whitepaper availability"
+    ]
+  }
+}
+страница с перзентацией - Отличный и **очень правильный вопрос**. Ты прав:
+для **Alpha 1 бюджет $600k — избыточен**, это уровень **Seed / Series A**, а не первой релизной фазы. Ниже я:
+
+1. **Исправляю ошибку** и объясняю, почему ранее получилось завышение
+2. Даю **реалистичный бюджет Alpha 1 ≤ $100k**
+3. Расписываю **оптимальный маркетинг и менеджмент**
+4. Даю **полный инвестиционно-экономический расчёт**
+5. Формирую **токеномику (off-chain → on-chain)**
+6. Разбиваю **следующие фазы инвестирования (Alpha → Beta → DAO)**
+
+Это уже уровень **взрослого инвест-дока**, а не демо.
+
+---
+
+# 1. Почему прошлый бюджет был завышен (и почему ты прав)
+
+Прошлый расчёт:
+
+* был сделан **как для классической стартап-команды из 8–10 человек**
+* включал:
+
+  * дорогой full-time staff
+  * enterprise-уровень аналитики
+  * юридику и compliance заранее
+* это **НЕ соответствует логике Alpha 1**, которую ты описал
+
+### Твоя логика правильная:
+
+Alpha 1 =
+
+* демонстрация ценности
+* PoC экономики
+* UX + data + engagement
+* минимальный костяк
+* AI-ассистированная разработка
+
+---
+
+# 2. Реальный бюджет Alpha 1 (≤ $100,000)
+
+## 🎯 Цель Alpha 1
+
+> Публичная рабочая версия, которую:
+
+* можно показать инвестору / фонду / государству
+* можно масштабировать
+* можно превратить в DAO
+
+---
+
+## 💰 Alpha 1 — Оптимальный бюджет
+
+### 2.1 Разработка (Core) — **$55,000**
+
+| Блок             | Состав                               | Бюджет  |
+| ---------------- | ------------------------------------ | ------- |
+| Frontend         | Next.js, UX, Dashboard, карты        | $18,000 |
+| Backend          | Auth, API, staking logic (off-chain) | $15,000 |
+| Data & Analytics | API ingestion, агрегация             | $8,000  |
+| UX/UI дизайн     | Mobile-first, Figma, flows           | $6,000  |
+| QA + Security    | базовый аудит                        | $4,000  |
+| DevOps           | GitHub + Vercel + Railway            | $4,000  |
+
+**Почему реально:**
+
+* AI-ассистированная разработка
+* modular architecture
+* open-source библиотеки
+* no blockchain yet
+
+---
+
+### 2.2 Инфраструктура (12 месяцев) — **$5,000**
+
+| Статья                | Сумма  |
+| --------------------- | ------ |
+| Vercel Pro / Free     | $1,200 |
+| Railway / Supabase    | $1,200 |
+| Storage / APIs        | $1,000 |
+| Домены / безопасность | $600   |
+| Резерв                | $1,000 |
+
+---
+
+### 2.3 Менеджмент и операционка — **$15,000**
+
+| Статья                   | Сумма  |
+| ------------------------ | ------ |
+| Product / Project Mgmt   | $6,000 |
+| Community & partnerships | $4,000 |
+| Юридика (light)          | $3,000 |
+| Финансы / отчётность     | $2,000 |
+
+---
+
+### 2.4 Маркетинг (Alpha) — **$20,000**
+
+> **Важно:** на Alpha маркетинг ≠ реклама
+> Это **PR, доверие, партнёрства**
+
+| Канал                      | Сумма  |
+| -------------------------- | ------ |
+| Pitch & презентации        | $3,000 |
+| Контент (whitepaper, сайт) | $4,000 |
+| Events / hackathons        | $5,000 |
+| PR / экспертные публикации | $4,000 |
+| Community / airdrops       | $4,000 |
+
+---
+
+## ✅ **ИТОГО Alpha 1**
+
+```
+Разработка:      $55,000
+Инфраструктура:  $5,000
+Менеджмент:      $15,000
+Маркетинг:       $20,000
+-------------------------
+TOTAL:           $95,000
+```
+
+🎯 **Идеально укладывается в <$100k**
+
+---
+
+# 3. Общая инвестиционно-экономическая модель (Big Picture)
+
+## Фазы развития
+
+### Phase 1 — Alpha 1 (0–6 мес)
+
+* Бюджет: **$95k**
+* Цель: продукт + traction
+* Доход: ❌ (не фокус)
+
+---
+
+### Phase 2 — Beta / Expansion (6–18 мес)
+
+* Бюджет: **$500k – $800k**
+* Добавляется:
+
+  * больше данных
+  * корпоративные аккаунты
+  * первые платные API
+  * пилоты с регионами / городами
+* Доход:
+
+  * B2B подписки
+  * аналитические отчёты
+  * доступ к impact market
+
+---
+
+### Phase 3 — DAO / Web3 (18–36 мес)
+
+* Бюджет: **$2M – $5M**
+* On-chain токен
+* Governance
+* International scaling
+* Institutional partnerships
+
+---
+
+# 4. Токеномика VOD (разумная и инвест-адекватная)
+
+## 4.1 На Alpha 1
+
+* **Off-chain token**
+* Unit of account & reputation
+* No speculation
+
+---
+
+## 4.2 Target Tokenomics (переход)
+
+### Total Supply (пример): **1,000,000,000 VOD**
+
+| Категория           | %   | Назначение      |
+| ------------------- | --- | --------------- |
+| Ecosystem & rewards | 30% | задания, вклад  |
+| Staking & liquidity | 20% | impact market   |
+| Treasury (DAO)      | 20% | развитие        |
+| Team (vesting)      | 15% | 3–4 года        |
+| Investors           | 10% | Seed / Series A |
+| Partners & grants   | 5%  | институции      |
+
+---
+
+## 4.3 Utility (ключевое для инвестора)
+
+* доступ к данным
+* участие в governance
+* стейкинг под impact-проекты
+* комиссии
+* reputation-score
+
+---
+
+# 5. Инвестиционная дорожная карта
+
+| Раунд    | Сумма | Оценка (пример) | Что получает инвестор |
+| -------- | ----- | --------------- | --------------------- |
+| Pre-Seed | $100k | $2–3M           | equity + future token |
+| Seed     | $500k | $6–8M           | equity + VOD          |
+| Series A | $2–5M | $20–30M         | equity + DAO          |
+
+---
+
+# 6. Почему это выглядит **очень сильно для инвестора**
+
+* разумный бюджет
+* отсутствие блокчейн-рисков на старте
+* data-first продукт
+* ESG / SDG6
+* DAO-ready архитектура
+* масштаб до государств и корпораций
+нь хорошем стратегическом уровне.
+Ниже — **максимально полный и структурированный список API**, которые можно использовать в **VODeco Alpha 1** (и далее) для мониторинга водных ресурсов, гидрологии, качества воды, потоков, уровней, климатических условий и связанных параметров. Включены **как статичные данные (исторические, периодические), так и «живые» онлайн-обновляемые API/сервисы**, где это возможно.
+
+---
+
+# 🌍 1. Глобальные и транснациональные API
+
+## 🌐 **USGS Water Data API (США — крупнейшая открытая сеть мониторинга)**
+
+Набор API от **U.S. Geological Survey (USGS)** с широким спектром гидрологических данных:
+
+### 📊 Основные категории
+
+* **Continuous Values API** — данные в реальном времени (поток, уровень, параметры).
+* **Daily Values API** — ежедневные значения гидрологии (исторические).
+* **Monitoring Locations API** — metadata по станциям: координаты, типы датчиков.
+* **Time Series Metadata API** — данные о временных рядах.
+* **Water Quality Portal (WQP) APIs** — данные качества воды (USGS + EPA + локальные агентства).
+* **USGS Water Samples API** — прямой доступ к наблюдениям качества воды.
+* **Real-Time Flood Impacts API** — данные о потенциальных зонах наводнений.
+* **National Imagery / NIMS** — гидрологические изображения, модели и визуализация.
+  🔗 Документация по API и доступ: [https://api.waterdata.usgs.gov/](https://api.waterdata.usgs.gov/) ([api.waterdata.usgs.gov][1])
+
+### 📌 Применение
+
+* Интеграция показателей уровня рек и озёр
+* Мониторинг качества воды по параметрам (температура, загрязнение)
+* Исторические тренды
+* Flood/risk данные
+
+---
+
+## 🚀 **NASA Earthdata / STREAM API (глобальные спутниковые данные)**
+
+API предоставляет доступ к спутниковым картам качества воды, основанным на **Landsat и Sentinel-2**, с обновлением до **≈ <6 часов**.
+🔗 Сервис: NASA Earthdata STREAM — интерактивное API для обработки водных данных в near-real-time ([NASA Earthdata][2])
+
+### 📌 Применение
+
+* глобальные неопосредованные индикаторы качества воды
+* вода/экология/смеси (спутниковые данные)
+* фильтрация по временным/пространственным параметрам
+
+> Примечание: для доступа требуется Earthdata Login.
+
+---
+
+## ☀️ **NASA OpenET API (этвапотранспирация — ключ для расчётов баланса воды)**
+
+API даёт данные о **эвапотранспирации (ET)** — важный параметр водного баланса, влияющий на водопользование, сельское хозяйство и устойчивость ресурсов.
+🔗 OpenET API — бесплатный API от NASA для интеграции данных ET в сторонние системы ([NASA][3])
+
+### 📌 Применение
+
+* оценка потерь воды
+* баланс водных систем
+* использование в моделировании устойчивости
+
+---
+
+# 🛰️ 2. Региональные API
+
+## 🇷🇺 **Росводресурсы — Водные данные API**
+
+Российская цифровая платформа «Водные данные» предоставляет открытые данные о водохозяйственной ситуации в России через API и интерактивные данные.
+🔗 Платформа содержит инструкции для запросов API в режиме реального времени к государственному водному реестру и мониторингу ([voda.gov.ru][4])
+
+### 📌 Применение
+
+* мониторинг локальных/региональных водных объектов РФ
+* интеграция с геоинформационными панелями
+* статистика и паспорта объектов
+
+---
+
+## 🌍 Дополнительные региональные/национальные API (примеры)
+
+*(уточнять вручную после списка, но эти источники часто имеют API/доступ к данным)*
+
+* **AquaInsight / AquaMap KZ** — региональные данные качества и экологические индексы водных объектов (Казахстан). ([aquainsightmap.com][5])
+  *скорее всего, API доступен на основе платформы (нужны уточнения через контакты/документацию)*
+
+---
+
+# 📈 3. Другие полезные API и данные
+
+## 📌 EOSDIS / Earthdata Search (NASA) — глобальный каталог данных
+
+Это не API данных напрямую, но *API поиска и метаданных*, который позволяет находить, запрашивать и интегрировать множество дочерних источников данных NASA о Земле, включая спутниковые наблюдения за водными системами. ([Википедия][6])
+
+## 💧 NHGF / Hydrology API (USGS National Hydrologic Geospatial Fabric)
+
+Сервис предоставляет доступ к пространственным данным гидрологии (географические сети рек, бассейны, границы водосборов). ([api.water.usgs.gov][7])
+
+---
+
+# 📌 4. API для связанных параметров, расширяющих контекст
+
+Эти API не о воде напрямую, но **значимо для анализа экосистем, изменений климата, индикаторов качества и рисков**:
+
+* **QAICN API (AQI данные качества воздуха, включают индикаторы смежного воздействия на водные экосистемы)** — API качества воздуха с зайцем API-ключом (для сопоставления с экологическими показателями) ([aqicn.org][8])
+  *(частично связанно, но может быть полезно для взаимосвязанных индексных панелей)*
+
+* **Метеорологические открытые данные (например, Росгидромет EIP)** — включает данные об авариях и загрязнении окружающей среды, аэрологических данных, косвенно коррелирующих с водным состоянием ([eip.meteo.ru][9])
+
+---
+
+# 🧠 5. API структурированные по категориям данных
+
+| Категория                             | Примеры API                         | Данные                           |
+| ------------------------------------- | ----------------------------------- | -------------------------------- |
+| **Гидрология (реальное время)**       | USGS Continuous Values OGC API      | уровень воды, поток, параметры   |
+| **Гидрология (исторические)**         | USGS Daily Values                   | значения за сутки                |
+| **Качество воды**                     | Water Quality Portal / USGS Samples | химия, показатели качества       |
+| **Спутниковые данные**                | NASA STREAM API, OpenET             | вода, растительность, ET         |
+| **Гидросеть/пространственные данные** | NHGF / NLDI API                     | география рек, водосборов        |
+| **Региональные платформы**            | Росводресурсы API                   | локальные гидрологические данные |
+| **Экология и климат**                 | NASA Earthdata Search               | косвенно связанные параметры     |
+| **Смежные среды**                     | API качества воздуха                | вспомогательные индексы          |
+
+---
+
+# 📌 6. Что ещё учесть при интеграции
+
+✔ Реестр API может требовать API-ключи (например, USGS OGC API). ([api.waterdata.usgs.gov][10])
+✔ Спутниковые сервисы дают **глобальные данные**, но могут требовать авторизацию (Earthdata Login). ([NASA Earthdata][2])
+✔ Для многих API существуют SDK / готовые клиенты (R, Python), которые облегчают интеграцию. ([doi-usgs.github.io][11])
+
+---
+
+
+
+[1]: https://api.waterdata.usgs.gov/?utm_source=chatgpt.com "USGS Water Data APIs"
+[2]: https://www.earthdata.nasa.gov/data/tools/stream?utm_source=chatgpt.com "STREAM | NASA Earthdata"
+[3]: https://www.nasa.gov/general/openet-launches-a-new-api/?utm_source=chatgpt.com "OpenET Launches a New API - NASA"
+[4]: https://voda.gov.ru/press-tsenter/news/federalnye/557689/?utm_source=chatgpt.com "Росводресурсы открыли «Водные данные»"
+[5]: https://aquainsightmap.com/?utm_source=chatgpt.com "AquaInsight Map - Интерактивная экологическая карта водных ресурсов Казахстана"
+[6]: https://en.wikipedia.org/wiki/EOSDIS?utm_source=chatgpt.com "EOSDIS"
+[7]: https://api.water.usgs.gov/?utm_source=chatgpt.com "API Water Landing Page - USGS.gov"
+[8]: https://aqicn.org/api/ru/?utm_source=chatgpt.com "API – программные API качества воздуха"
+[9]: https://eip.meteo.ru/opendata?utm_source=chatgpt.com "ЕИП Росгидромета"
+[10]: https://api.waterdata.usgs.gov/docs/ogcapi/keys/?utm_source=chatgpt.com "Using API Keys with USGS water data APIs"
+[11]: https://doi-usgs.github.io/dataRetrieval/?utm_source=chatgpt.com "Retrieval Functions for USGS and EPA Hydrology and Water Quality ..."
